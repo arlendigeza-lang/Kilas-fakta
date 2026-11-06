@@ -1,0 +1,31 @@
+name: Render KILAS FAKTA Intro
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "render_intro.py"
+      - ".github/workflows/render-intro.yml"
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install --upgrade pip pillow
+      - name: Render 8-second vertical MP4
+        run: |
+          python render_intro.py
+          ffmpeg -y -framerate 24 -i output/frame_%04d.jpg -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -movflags +faststart -t 8 output/KILAS_FAKTA_Intro_8s.mp4
+      - name: Upload MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: KILAS-FAKTA-Intro-8s
+          path: output/KILAS_FAKTA_Intro_8s.mp4
+          if-no-files-found: error
+          retention-days: 7
