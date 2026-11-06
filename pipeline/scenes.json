@@ -1,0 +1,45 @@
+{
+  "model": "gemini-omni-1.1-flash",
+  "aspect_ratio": "9:16",
+  "resolution": "720p",
+  "duration_seconds": 10,
+  "visual_style": "Premium illustrated historical documentary animation, richly detailed hand-painted 2D/2.5D characters and environments, cinematic lighting, natural human anatomy, believable horses and historical clothing, layered parallax depth, fluid character and environmental movement. Consistent visual design across all scenes. No geometric abstract shapes, no infographic-only scenes, no modern objects, no text, no logos, no subtitles inside generated footage.",
+  "scenes": [
+    {
+      "id": "01",
+      "prompt": "Wide establishing shot of the vast 13th-century Mongolian steppe at dawn. Wind sweeps through golden grass, distant mountains sit beneath a dramatic sky, a small group of Mongol horsemen rides across the horizon and grows larger as the camera glides low over the grass. Historically grounded Mongolian landscape, powerful opening image."
+    },
+    {
+      "id": "02",
+      "prompt": "A historically grounded 13th-century Mongol tribal encampment. Several rival nomadic clans occupy separate groups of felt yurts; horsemen argue beside tethered horses while families and herds move through the camp. The camera tracks between the yurts, showing tension and division among the tribes."
+    },
+    {
+      "id": "03",
+      "prompt": "Temujin, a young Mongol leader in historically inspired 13th-century clothing, stands before assembled tribal chiefs in a vast open steppe gathering in 1206. Warriors lower their banners and acknowledge him as Genghis Khan. Slow cinematic push-in on Temujin, then a sweeping view of the united gathering. Do not depict a modern crown or European medieval armor."
+    },
+    {
+      "id": "04",
+      "prompt": "A disciplined Mongol cavalry unit trains at full speed across the open steppe. Archers shoot accurately from moving horses, riders coordinate in formation, horses gallop through dust, and the camera races alongside them at ground level. Dynamic but believable historical military action, no fantasy armor."
+    },
+    {
+      "id": "05",
+      "prompt": "Mongol cavalry advances toward a fortified city in northern China, then transition within the same continuous shot to a vast Central Asian caravan route and Persian-style city walls. Show the scale of expansion through moving riders, banners, dust and changing landscapes, not a flat abstract map."
+    },
+    {
+      "id": "06",
+      "prompt": "A solemn historical scene in 1227: Genghis Khan's funeral procession moves quietly across the Mongolian steppe at dusk, followed by mounted commanders and standards. Transition to his successors gathered around a large map laid on a wooden table inside a felt command tent, planning further campaigns."
+    },
+    {
+      "id": "07",
+      "prompt": "A sweeping cinematic journey across the immense Mongol Empire at its height: Mongol horsemen ride past Chinese city walls, Central Asian caravanserais, Persian architecture and Eastern European grasslands. Use seamless landscape transitions and a subtle illuminated historical Eurasia map briefly integrated into the environment, showing the empire stretching from East Asia toward Eastern Europe."
+    },
+    {
+      "id": "08",
+      "prompt": "Inside a grand Mongol royal court, rival princes and commanders confront one another over succession. Tense faces, hands gripping the edges of a carved wooden table, guards watching silently. The camera slowly circles the divided leaders, then reveals separate groups departing in different directions, symbolizing the empire fragmenting into khanates."
+    },
+    {
+      "id": "09",
+      "prompt": "A richly detailed historical montage in one flowing cinematic sequence: Yuan-era imperial architecture in China, Ilkhanate Persian court, Chagatai-era Central Asian city and Golden Horde horsemen on the Eurasian steppe. End with an evocative caravan crossing the Silk Road at sunset, merchants and travelers moving between cultures, suggesting the Mongol legacy in trade and world connections."
+    }
+  ]
+}
