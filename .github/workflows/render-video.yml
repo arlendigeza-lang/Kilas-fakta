@@ -1,0 +1,63 @@
+name: Render KILAS FAKTA video
+
+on:
+  workflow_dispatch:
+    inputs:
+      narration_file:
+        description: "Path audio narasi di repository"
+        required: true
+        default: "assets/narration.mp3"
+      scenes_file:
+        description: "Path daftar adegan JSON"
+        required: true
+        default: "pipeline/scenes.json"
+      title:
+        description: "Judul video"
+        required: true
+        default: "KEKAISARAN MONGOL: IMPERIUM TERBESAR DALAM SEJARAH"
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FFmpeg and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip requests
+
+      - name: Check required files and secret
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          test -n "$GEMINI_API_KEY" || (echo "Missing GEMINI_API_KEY repository secret" && exit 1)
+          test -f "${{ inputs.narration_file }}" || (echo "Narration file not found" && exit 1)
+          test -f "${{ inputs.scenes_file }}" || (echo "Scenes JSON not found" && exit 1)
+
+      - name: Generate scenes and render final MP4
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NARRATION_FILE: ${{ inputs.narration_file }}
+          SCENES_FILE: ${{ inputs.scenes_file }}
+          VIDEO_TITLE: ${{ inputs.title }}
+        run: python pipeline/render.py
+
+      - name: Upload finished video
+        uses: actions/upload-artifact@v4
+        with:
+          name: KILAS-FAKTA-video
+          path: output/KILAS_FAKTA.mp4
+          if-no-files-found: error
+          retention-days: 7
