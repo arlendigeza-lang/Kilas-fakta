@@ -1,5 +1,5 @@
 {
-  "model": "gemini-omni-1.1-flash",
+  "model": "gemini-omni-1.2-flash",
   "aspect_ratio": "9:16",
   "resolution": "720p",
   "duration_seconds": 10,
